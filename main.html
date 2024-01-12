@@ -1,16 +1,49 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: background-image 0.5s;
+        }
+
+        /* Landscape Mode Background */
+        @media screen and (orientation: landscape) {
+            body {
+                background-image: url('https://photovideocreative.com/wordpress/wp-content/uploads/2017/11/Paysage-en-orientation-paysage.jpg');
+            }
+        }
+
+        /* Portrait Mode Background */
+        @media screen and (orientation: portrait) {
+            body {
+                background-image: url('https://photovideocreative.com/wordpress/wp-content/uploads/2017/11/Portrait-en-orientation-portrait.jpg');
+            }
+        }
+    </style>
+    <title>Dynamic Background Image Rotation</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+    <script>
+        // Check screen orientation and apply initial background
+        function checkOrientation() {
+            if (window.matchMedia("(orientation: landscape)").matches) {
+                document.body.style.backgroundImage = 'url("https://photovideocreative.com/wordpress/wp-content/uploads/2017/11/Paysage-en-orientation-paysage.jpg")';
+            } else {
+                document.body.style.backgroundImage = 'url("https://photovideocreative.com/wordpress/wp-content/uploads/2017/11/Portrait-en-orientation-portrait.jpg")';
+            }
+        }
 
+        // Listen for screen orientation changes
+        window.addEventListener("resize", checkOrientation);
+        
+        // Initial check
+        checkOrientation();
+    </script>
 </body>
-
 </html>
